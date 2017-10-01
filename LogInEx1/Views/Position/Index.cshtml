@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LogInEx1.Models.PositionViewModel>
+
+@{
+    ViewBag.Title = "Position";
+}
+
+<p>
+    @Html.ActionLink("New Position", "Create", null, new { @class = "btn btn-primary"})
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PositionTitle)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PositionId }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.PositionId }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PositionId })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>

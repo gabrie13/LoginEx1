@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LogInEx1.Models.LocationViewModel>
+
+@{
+    ViewBag.Title = "Location";
+}
+
+<p>
+    @Html.ActionLink("New Location", "Create", null, new { @class = "btn btn-primary"})
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LocationId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LocationId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
+                </td>
+            </tr>
+        </tbody>
+    }
+
+</table>
